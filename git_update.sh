@@ -58,6 +58,10 @@ function stash_save {
 	git stash save
 }
 
+function git_submodule_update {
+	git submodule update -r
+}
+
 function stash_pop {
 	info_message "Unstashing old changes"
 	git stash pop
@@ -122,6 +126,8 @@ if [[ $ADVANCED_COMMAND == "branch" && $PARAMETER ]]; then
 else
 	git_smart_update
 fi
+
+git_submodule_update
 
 if [[ $ADVANCED_COMMAND == "push" ]]; then
 	push_changes
